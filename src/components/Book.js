@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Book = (props) => {
+
     return (
         <div className="media">
             <img src={props.image} className="mr-3" alt="..." />
