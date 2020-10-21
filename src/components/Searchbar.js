@@ -10,7 +10,6 @@ const Searchbar = (props) => {
         .get(API)
         .then((res) => {
           const data = res.data.items ? res.data.items : [];
-          console.log(res.data);
           props.handleResultsUpdate(data);
         })
         .catch((err) => {
