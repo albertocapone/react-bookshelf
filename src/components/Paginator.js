@@ -26,17 +26,17 @@ const Paginator = (props) => {
 
     
     return (
-        <div>
+        <div className="w-75 h-25 mx-auto">
             <form className="form-inline">
-                <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Select results number for page</label>
-                <select onChange={handleResultsPerPageSelection} className="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                <label className="mr-sm-2 font-weight-bold font-italic">Results for page</label>
+                <select onChange={handleResultsPerPageSelection} className="ml-2 border-dark border-m rounded font-weight-bold no-outline">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                 </select>
             </form>
-            <ul className="pagination">
+            <ul className="pagination pagination-sm justify-content-center mt-4 mx-auto w-fit border-dark border-m rounded">
                 {pages}
             </ul>
         </div>  

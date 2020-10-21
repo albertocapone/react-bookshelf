@@ -10,6 +10,7 @@ const Searchbar = (props) => {
         .get(API)
         .then((res) => {
           const data = res.data.items ? res.data.items : [];
+          console.log(res.data);
           props.handleResultsUpdate(data);
         })
         .catch((err) => {
@@ -19,8 +20,8 @@ const Searchbar = (props) => {
     }
 
     return (
-      <form className="form-inline" onChange={handleAjaxCall} onSubmit={(e) => e.preventDefault()}>
-        <input className="form-control" type="search" placeholder="Search" aria-label="Search"></input>
+      <form className="form-inline w-75 mx-auto" onChange={handleAjaxCall} onSubmit={(e) => e.preventDefault()}>
+        <input className="form-control border-dark border-lg rounded w-75 pt-3 pb-3 font-weight-bold" type="search" placeholder="Search for a book..." aria-label="Search"></input>
       </form>
     );
 }

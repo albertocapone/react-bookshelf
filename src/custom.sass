@@ -1,12 +1,30 @@
+/* Bootstrap Overrides */
+
+//settings
+$enable-gradients: true
+$enable-responsive-font-sizes: true
+
+//theming
+$theme-colors: ("primary": #ff5039, "secondary": #212529, "layover": #343a40b3, "hover": #ff50392c)
+
+//sizing
+$sizes: ("20": 20%, "fit": fit-content)
+
 
 @import '~bootstrap/scss/bootstrap.scss'
 
-.block-scroll           //this class prevents container from scrolling (applied when DetailsModal is open)
-    height: 100vh
-    overflow-y: hidden
+/* ------------------ */
 
-.bg-color-layover 
-    background-color: #343a40b3
+
+
+/* Custom Classes */
+
+// layout
+.border-lg
+    border: 5px solid 
+
+.border-m
+    border: 3px solid
 
 .position-tl-0
     top: 0
@@ -19,11 +37,32 @@
 .z-high
     z-index: 3000
 
-.z-medium
-    z-index: 2000
-
 .z-low
     z-index: 1000
 
 .transform-center
     transform: translate(-50%, -50%)
+
+.no-outline
+  outline: none !important
+    
+// scrollbar 
+::-webkit-scrollbar 
+    width: 7px
+
+::-webkit-scrollbar-track 
+    background: #f1f1f1 
+
+::-webkit-scrollbar-thumb 
+    background: #888 
+
+::-webkit-scrollbar-thumb:hover 
+   background: #555 
+
+
+// text 
+.text-3d
+    text-shadow: 1px 1px hsl(0, 0%, 85%), 1px 2px hsl(0, 0%, 80%), 1px 3px hsl(0, 0%, 75%), 1px 3px 8px $secondary
+    font-weight: 700
+
+/* -------------- */
