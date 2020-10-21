@@ -36,7 +36,7 @@ const Paginator = (props) => {
                     <option value="20">20</option>
                 </select>
             </form>
-            <ul className="pagination pagination-sm justify-content-center mt-4 mx-auto w-fit border-dark border-m rounded">
+            <ul className={`pagination pagination-sm justify-content-center mt-4 border-dark border-m rounded mx-auto w-fit scale-x-0 ${pages.length > 0 ? 'scale-x-transition' : ''}`}>
                 {pages}
             </ul>
         </div>  

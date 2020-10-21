@@ -18,7 +18,7 @@ class Bookshelf extends React.Component {
         const first = last - this.props.resultsPerPage;
 
         return (
-            <ul ref={this.ulRef} className="list-unstyled bg-light border-dark border-lg rounded w-75 h-50 mt-4 mb-4 mx-auto overflow-auto">
+            <ul ref={this.ulRef} className="list-unstyled bg-light border-dark border-lg rounded w-75 h-50 pr-1 mt-4 mb-4 mx-auto overflow-auto">
                 {this.props.searchResults.slice(first, last).map((res) => (  //map applies on a new array returned by slice which contains just a section of the original searchResults array
                     <Book 
                         key={res.id}
