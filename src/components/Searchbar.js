@@ -3,12 +3,11 @@ import axios from 'axios';
 
 const Searchbar = (props) => {
   
-    const CancelToken = axios.CancelToken;
-    let cancel;
+    let debouncedCall;
 
     const handleAjaxCall = (e) => {
-
-      if(cancel) cancel();    
+      
+      if (debouncedCall) clearTimeout(debouncedCall);
 
       const query = e.target.value;
 
@@ -19,20 +18,23 @@ const Searchbar = (props) => {
         return;
       }
 
-      const API = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`; //added parameter |maxResults=40| to get as many results as possible
-      axios
-        .get(API, { 
-          cancelToken: new CancelToken( (c) => { cancel = c; } ) 
-        })
-        .then((res) => {
-          const data = res.data.items ? res.data.items : [];  //sometimes, even on success, API responds with no items
-          console.log(res.data);
-          props.handleResultsUpdate(data);
-        })
-        .catch((err) => {
-          console.log(err);
-          props.handleResultsUpdate([]);
-        });
+      debouncedCall = setTimeout(
+        () => { 
+          const API = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`; //added parameter |maxResults=40| to get as many results as possible
+          axios
+            .get(API)
+            .then((res) => {
+              const data = res.data.items ? res.data.items : [];  //sometimes, even on success, API responds with no items
+              props.handleResultsUpdate(data);
+            })
+            .catch((err) => {
+              console.log(err);
+              props.handleResultsUpdate([]);
+            });
+        },
+        200
+      );
+
     }
 
     return (
