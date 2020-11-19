@@ -10,15 +10,13 @@ class Book extends React.Component {
         this.state = {
             hover: false
         };
-        this.handleModalOpening = this.handleModalOpening.bind(this);
-        this.handleHover = this.handleHover.bind(this);
     }
 
-    handleModalOpening() {
+    handleModalOpening = () => {
       this.props.handleDetailsModalUpdate(true, this.props.book);
-    };
+    }
 
-    handleHover(e) {
+    handleHover = (e) => {
         const hover = (e.type === 'mouseenter')? true : false;
         this.setState( () => ( { hover } ) );
     }

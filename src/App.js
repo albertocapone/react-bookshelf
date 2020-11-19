@@ -14,20 +14,17 @@ class App extends React.Component {
       detailsModalIsOpen: false,
       mediaShowingInModal: {}
     };
-    this.handleResultsUpdate = this.handleResultsUpdate.bind(this);
-    this.handlePaginationUpdate = this.handlePaginationUpdate.bind(this);
-    this.handleDetailsModalUpdate = this.handleDetailsModalUpdate.bind(this);
   }
 
-  handleResultsUpdate(searchResults) {
+  handleResultsUpdate = (searchResults) => {
     this.setState(() => ({ searchResults }));
   }
 
-  handlePaginationUpdate(resultsPerPage, currentPage) {
+  handlePaginationUpdate = (resultsPerPage, currentPage) => {
     this.setState(() => ({ resultsPerPage, currentPage }));
   }
 
-  handleDetailsModalUpdate(detailsModalIsOpen, mediaShowingInModal) {
+  handleDetailsModalUpdate = (detailsModalIsOpen, mediaShowingInModal) => {
     this.setState(() => ({ detailsModalIsOpen, mediaShowingInModal }));
   }
 

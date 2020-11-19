@@ -8,7 +8,7 @@ const Details = (props) => {
     }
 
     return (
-        <div onClick={handleModalClosing} className="bg-layover position-fixed w-100 h-100 position-tl-0 z-low">
+        <div onClick={handleModalClosing} className="bg-layover position-fixed w-100 h-100 overflow-auto position-tl-0 z-low">
             <div onClick={(e) => e.stopPropagation()} className="card bg-white border border-secondary rounded position-fixed w-75 position-tl-50 transform-center z-high">
                 <div className="card-body">
                     <img src={ (props.book.imageLinks) ? props.book.imageLinks.smallThumbnail : noImg} className="float-right border border-secondary rounded w-20" alt="..." />
